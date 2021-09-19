@@ -3,7 +3,8 @@ use std::fs;
 use std::io::{Read, Write};
 
 fn process(input_fname: &str, output_fname: &str) -> Result<(), String> {
-    let mut input_file = fs::File::open(input_fname).map_err(|err| format!("error opening input '{}': {}", input_fname, err))?;
+    let mut input_file = fs::File::open(input_fname)
+        .map_err(|err| format!("error opening input '{}': {}", input_fname, err))?;
     let mut contents = Vec::new();
     input_file
         .read_to_end(&mut contents)
